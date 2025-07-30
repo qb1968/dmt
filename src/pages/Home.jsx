@@ -25,6 +25,18 @@ const artists = [
     bio: "Meet the owner, Heather Harlow renowned for intricate designs that blend spirituality and creativity to create mesmerizing tattoos. With a keen eye for detail and a passion for meaningful art, our artist ensures every tattoo is a divine moment etched on your skin.",
     bio2: "Hi friends! My name is Heather Harlow but everyone calls me Harlow. I have been tattooing since 2006. I am so blessed to have found my passion at an early age. I knew art would not only provide me a living, but would bring much joy and contentment in my life. I started off with pencil drawings at an early age. Throughout the years I found myself in love with all mediums. So be it watercolor, acrylic, oils, airbrushing or anything that I could express myself, I had to do it. Then I found tattooing, the one medium that challenged me the most and here I am. Forever in love with this craft and forever thankful for the mentors I have had along the way. I have worked in several locations on the east coast. I have been blessed with the opportunity to work with some amazing artist throughout the years. I am grateful for Garry's Skin Grafix to have had such an influential part of my career early on. I spent many years working there at the beginning of my career.",
     bio3: "As I got older I wanted to move closer to family so I opened Divine Moment Tattooing in 2012. I am very versatile and can do most anything. I can't say I have a favorite style. I love black and gray as well as color. I appreciate all styles of art and love a good challenge! So cover-ups are always welcome.",
+    socials: [
+      {
+        name: "Facebook",
+        url: "https://www.facebook.com/heather.harlow.18/",
+        icon: <FaFacebook />,
+      },
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/harlowtattoo/",
+        icon: <FaInstagram />,
+      },
+    ],
   },
   {
     name: "Pat Ronning",
@@ -200,27 +212,32 @@ export default function Home() {
                 alt={selectedArtist.name}
                 className="w-full h-64 object-cover rounded-md mb-4"
               />
-              <div className="mt-4 flex flex-wrap gap-4">
-                {selectedArtist.socials.map((social, idx) => (
-                  <a
-                    key={idx}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-900 hover:underline flex items-center gap-1"
-                  >
-                    <span>{social.icon}</span>
-                    <span className="text-sm">{social.name}</span>
-                  </a>
-                ))}
-              </div>
+
               {/* Name & Role */}
               <h3 id="artist-modal-title" className="text-2xl font-bold mb-2">
                 {selectedArtist.name}
               </h3>
-              <p className="text-sm text-gray-900 mb-4 font-extrabold">
+              <p className="text-sm text-gray-900 mb-2 font-extrabold">
                 {selectedArtist.role}
               </p>
+
+              {/* Social Links - Check if exists */}
+              {selectedArtist.socials?.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-4 mb-3">
+                  {selectedArtist.socials.map((social, idx) => (
+                    <a
+                      key={idx}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-900 hover:underline flex items-center gap-1"
+                    >
+                      {social.icon}
+                      <span className="text-sm">{social.name}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
 
               {/* Scrollable Bio */}
               <div
