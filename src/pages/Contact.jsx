@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import bgImage from "../assets/download.png";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,8 +37,11 @@ export default function Contact() {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed text-white py-16 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div className="max-w-4xl mx-auto bg-white/10 p-8 rounded-lg shadow-md ">
         <h2 className="text-4xl font-bold text-center mb-4 font-lacquer">
           Contact Us
         </h2>
@@ -67,7 +71,7 @@ export default function Contact() {
         {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 bg-white/10 p-8 rounded-lg shadow-md max-w-xl mx-auto"
+          className="space-y-6 bg-white/30 p-8 rounded-lg shadow-md max-w-xl mx-auto"
         >
           <div>
             <label htmlFor="name" className="block mb-2 text-sm font-medium">
